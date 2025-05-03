@@ -2,6 +2,7 @@ output
 .DS_Store
 
 # build artifacts
+Gemfile.lock
 progit_*.html
 progit_*.asc
 progit_*.pdf
