@@ -1,2 +1,12 @@
 output
 .DS_Store
+
+# build artifacts
+progit_*.html
+progit_*.asc
+progit_*.pdf
+progit.pdfmarks
+progit_*.epub
+progit_*-kf8.epub
+progit_*.mobi
+book/contributors.txt
