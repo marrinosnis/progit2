@@ -3,12 +3,11 @@ output
 
 # build artifacts
 Gemfile.lock
-progit*.html
-progit_*.asc
-progit*.pdf
+progit.html
+progit.pdf
 progit.pdfmarks
-progit*.epub
-progit*.zip
-progit*-kf8.epub
-progit*.mobi
-book/contributors.txt
+progit.epub
+progit.fb2.zip
+progit-kf8.epub
+progit.mobi
+contributors.txt
