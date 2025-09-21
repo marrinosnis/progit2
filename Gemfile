@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'rake', '13.2.1'
 gem 'asciidoctor', '2.0.23'
@@ -18,4 +16,3 @@ gem 'thread_safe', '0.3.6'
 gem 'epubcheck-ruby', '5.2.1.0'
 gem 'html-proofer', '5.0.10'
 gem 'kindlegen', '3.1.1'
-
