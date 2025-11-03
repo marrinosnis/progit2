@@ -15,14 +15,13 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: progit/progit2
-      
-      - run: mv progit2 progit2-en
+          path: progit2-en
         
       - name: Checkout progit2-gr
         uses: actions/checkout@v5
         with:
           repository: ${{ github.repository }}  #this is the current repository
-      - run: mv progit2 progit2-gr
+          path: progit2-gr
     
       - name: Print the content of the current workspace
         run: ls -la $GITHUB_WORKSPACE/../
