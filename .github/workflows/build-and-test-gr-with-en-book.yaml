@@ -24,4 +24,4 @@ jobs:
           path: progit2-gr
     
       - name: Print the content of the current workspace
-        run: ls -la $GITHUB_WORKSPACE/../
+        run: ls -la $GITHUB_WORKSPACE
