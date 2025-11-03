@@ -14,7 +14,7 @@ jobs:
       - name: Checkout progit2-en
         uses: actions/checkout@v5
         with:
-          repository: 'https://github.com/progit/progit2.git'
+          repository: progit/progit2
           
       - name: Checkout progit2-gr
         uses: actions/checkout@v5
