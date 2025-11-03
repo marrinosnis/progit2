@@ -22,4 +22,4 @@ jobs:
           repository: ${{ github.repository }}  #this is the current repository
     
       - name: Print the content of the current workspace
-        run: ls -la ${{ GITHUB_WORKSPACE }}
+        run: ls -la $GITHUB_WORKSPACE
