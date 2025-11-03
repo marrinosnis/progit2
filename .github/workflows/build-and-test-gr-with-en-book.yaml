@@ -1,0 +1,26 @@
+name: Build and run tests for progit2-gr book
+
+on:
+  push
+
+
+jobs:
+  checkout-progit2-english-version:
+    runs-on: ubuntu-latest
+
+    name: Checkout and Build the english version of progit2
+
+    steps:
+      - name: Checkout progit2-en
+        uses: actions/checkout@v5
+        with:
+          repository: 'https://github.com/progit/progit2.git'
+
+
+     - name: Checkout progit2-gr
+       uses: actions/checkout@v5
+       with:
+        repository: ${{ github.repository }}  #this is the current repository
+
+    - name: Print the content of the current workspace
+      run: ls -la
