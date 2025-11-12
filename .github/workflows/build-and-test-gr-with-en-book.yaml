@@ -31,8 +31,12 @@ jobs:
 
           echo "\nThis content is from the progit2-gr"
           ls -la $GITHUB_WORKSPACE/progit2-gr
+      
+      - name: Print values
+        run: env | sort 
+        
 
-  call-workflow:
-    name: Call the other reusable workflow
-    uses: ${{ github.repository }}/.github/workflows/runtests.yml@add-github-actions
+  # call-workflow:
+  #   name: Call the other reusable workflow
+  #   uses: ${{ github.repository }}/.github/workflows/runtests.yml@add-github-actions
 
