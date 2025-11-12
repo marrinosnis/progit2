@@ -39,6 +39,7 @@ jobs:
         
 
   call-workflow:
+    if: ${{ always() }}
     needs: checkout-progit2-english-version
     name: Call the other reusable workflow
     uses: marrinosnis/progit2/.github/workflows/runtests.yml@add-github-actions
