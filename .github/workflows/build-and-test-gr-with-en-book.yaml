@@ -33,7 +33,9 @@ jobs:
           ls -la $GITHUB_WORKSPACE/progit2-gr
       
       - name: Print values
-        run: env | sort 
+        run: |
+          echo "The value of the GITHUB_REPOSITORY is"
+          echo ${{GITHUB_REPOSITORY}}
         
 
   # call-workflow:
