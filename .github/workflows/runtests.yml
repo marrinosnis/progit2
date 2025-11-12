@@ -10,5 +10,8 @@ jobs:
 
     steps:
       - name: Call oneline script from the reusable workflow
-        run: echo "Finally call the script"
+        run: |
+          echo "Finally call the script"
+          echo "Also print the content of the GITHUB_WORKSPACE"
+          ls -la $GITHUB_WORKSPACE
 
