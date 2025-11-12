@@ -1,0 +1,14 @@
+name: Run C++ test cases
+
+on: workflow_call
+
+jobs:
+  run-c-plus-plus-tests:
+    runs-on: ubuntu-latest
+
+    name: Check that is works
+
+    steps:
+      - name: Call oneline script from the reusable workflow
+        run: echo "Finally call the script"
+
