@@ -37,18 +37,30 @@ jobs:
           echo "The value of the GITHUB_REPOSITORY is"
           echo ${{ github.repository }}
       
-      - name: The home directory in the github runner
+      - name: Run the english version of findHttpsLinks
         run: |
-          echo "The tilda has the value of:"
-          pwd
-          echo ~
-          echo $HOME
+          chmod +x $GITHUB_WORKSPACE/progit2_gr/findLinks_gr 
+          $GITHUB_WORKSPACE/progit2_gr/findLinks_gr $GITHUB_WORKSPACE/progit2_gr/book/02-git-basics/sections
+
+      - name: Check the $HOME after the run of the executable
+        run: |
+          ls -la $HOME
+          ls -la $HOME/results
+          ls -la $HOME/results/allFilesFromTheRoot_gr
+          ls -la $HOME/results/check_gr
+
+      # - name: The home directory in the github runner
+      #   run: |
+      #     echo "The tilda has the value of:"
+      #     pwd
+      #     echo ~
+      #     echo $HOME
 
         
 
-  call-workflow:
-    if: ${{ always() }}
-    needs: checkout-progit2-english-version
-    name: Call the other reusable workflow
-    uses: marrinosnis/progit2/.github/workflows/runtests.yml@add-github-actions
+  # call-workflow:
+  #   if: ${{ always() }}
+  #   needs: checkout-progit2-english-version
+  #   name: Call the other reusable workflow
+  #   uses: marrinosnis/progit2/.github/workflows/run-english-checks.yml@add-github-actions
 
