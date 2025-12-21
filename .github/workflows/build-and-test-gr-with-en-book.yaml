@@ -49,12 +49,6 @@ jobs:
           ls -la $HOME/results/allFilesFromTheRoot_gr
           ls -la $HOME/results/check_gr
           
-          echo "The results from the $GITHUB_REPOSITORY\n"
-          ls -la $GITHUB_REPOSITORY
-          ls -la $GITHUB_REPOSITORY/results
-          ls -la $GITHUB_REPOSITORY/results/allFilesFromTheRoot_gr
-          ls -la $GITHUB_REPOSITORY/results/check_gr
-
       # - name: The home directory in the github runner
       #   run: |
       #     echo "The tilda has the value of:"
