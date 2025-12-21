@@ -36,6 +36,14 @@ jobs:
         run: |
           echo "The value of the GITHUB_REPOSITORY is"
           echo ${{ github.repository }}
+      
+      - name: The home directory in the github runner
+        run: |
+          echo "The tilda has the value of:"
+          pwd
+          echo ~
+          echo $HOME
+
         
 
   call-workflow:
