@@ -39,8 +39,8 @@ jobs:
       
       - name: Run the english version of findHttpsLinks
         run: |
-          chmod +x $GITHUB_WORKSPACE/progit2_gr/findLinks_gr 
-          $GITHUB_WORKSPACE/progit2_gr/findLinks_gr $GITHUB_WORKSPACE/progit2_gr/book/02-git-basics/sections
+          chmod +x $GITHUB_WORKSPACE/progit2-gr/findLinks_gr 
+          $GITHUB_WORKSPACE/progit2-gr/findLinks_gr $GITHUB_WORKSPACE/progit2-gr/book/02-git-basics/sections
 
       - name: Check the $HOME after the run of the executable
         run: |
