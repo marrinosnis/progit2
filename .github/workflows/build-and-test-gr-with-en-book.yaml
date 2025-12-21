@@ -44,10 +44,10 @@ jobs:
 
       - name: Check the $HOME after the run of the executable
         run: |
-          ls -la $GITHUB_WORKSPACE
-          ls -la $GITHUB_WORKSPACE/results
-          ls -la $GITHUB_WORKSPACE/results/allFilesFromTheRoot_gr
-          ls -la $GITHUB_WORKSPACE/results/check_gr
+          ls -la $HOME
+          ls -la $HOME/results
+          ls -la $HOME/results/allFilesFromTheRoot_gr
+          ls -la $HOME/results/check_gr
           
       # - name: The home directory in the github runner
       #   run: |
