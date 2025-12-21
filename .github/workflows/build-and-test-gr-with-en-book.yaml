@@ -44,11 +44,14 @@ jobs:
 
       - name: Check the $HOME after the run of the executable
         run: |
-          ls -la $HOME
-          ls -la $HOME/results
-          ls -la $HOME/results/allFilesFromTheRoot_gr
-          ls -la $HOME/results/check_gr
-          
+          ls -la ${{ github.repository }}
+          ls -la ${{ github.repository }}/results
+          ls -la ${{ github.repository }}/results/allFilesFromTheRoot_gr
+          ls -la ${{ github.repository }}/results/check_gr
+
+          echo "The value of GITHUB_REPOSITORY is:\n"
+          echo $GITHUB_REPOSITORY
+
       # - name: The home directory in the github runner
       #   run: |
       #     echo "The tilda has the value of:"
