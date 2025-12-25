@@ -53,13 +53,9 @@ jobs:
         run: |
           cd $HOME
           if diff -r progit2Results/allFilesFromTheRoot_en/ progit2Results/allFilesFromTheRoot_gr/ > /dev/null; then 
-          diffExitCode=$?
-          echo "The exit status code is: $diffExitCode"
-          if [ $diffExitCode -ne 0 ]; then
-            echo "There were difference between files"
-            cat diffFiles.txt
-          else
             echo "All files are the same"
+          else
+            echo "There were difference between files"            
           fi
 
         
