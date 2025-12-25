@@ -45,11 +45,16 @@ jobs:
           ls -la $HOME
           ls -la $HOME/progit2Results
 
+          echo "\n\nPrint the content of the progit2Results"
+          ls -la $HOME/progit2Results/allFilesFromTheRoot_en
+          ls -la $HOME/progit2Results/allFilesFromTheRoot_gr
       
       - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
         run: |
-          diff -r $HOME/progit2Results/allFilesFromTheRoot_en/ $HOME/progit2Results/allFilesFromTheRoot_gr/ > diffFiles.txt
+          cd $HOME
+          diff -r progit2Results/allFilesFromTheRoot_en/ progit2Results/allFilesFromTheRoot_gr/ > /dev/null
           diffExitCode=$?
+          echo "The exit status code is: $diffExitCode"
           if [ $diffExitCode -ne 0 ]; then
             echo "There were difference between files"
             cat diffFiles.txt
