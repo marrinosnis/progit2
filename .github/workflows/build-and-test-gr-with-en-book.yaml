@@ -23,40 +23,44 @@ jobs:
           repository: ${{ github.repository }}  #this is the current repository
           path: progit2-gr
     
-      - name: Print the content of the current workspace
-        run: |
-          ls -la $GITHUB_WORKSPACE
-          echo "This content is from the progit2-en"
-          ls -la $GITHUB_WORKSPACE/progit2-en
+      # - name: Print the content of the current workspace
+      #   run: |
+      #     ls -la $GITHUB_WORKSPACE
+      #     echo "This content is from the progit2-en"
+      #     ls -la $GITHUB_WORKSPACE/progit2-en
 
-          echo "\nThis content is from the progit2-gr"
-          ls -la $GITHUB_WORKSPACE/progit2-gr
-      
-      - name: Print values
-        run: |
-          echo "The value of the GITHUB_REPOSITORY is"
-          echo ${{ github.repository }}
+      #     echo "\nThis content is from the progit2-gr"
+      #     ls -la $GITHUB_WORKSPACE/progit2-gr
       
       - name: Run the english version of findHttpsLinks
         run: |
-          chmod +x $GITHUB_WORKSPACE/progit2-gr/findLinks_gr 
-          $GITHUB_WORKSPACE/progit2-gr/findLinks_gr $GITHUB_WORKSPACE/progit2-gr/book/02-git-basics/sections
+          chmod +x $GITHUB_WORKSPACE/progit2-gr/findLinks_gr
+          chmod +x $GITHUB_WORKSPACE/progit2-gr/findLinks_en
+          
+          $GITHUB_WORKSPACE/progit2-gr/findLinks_gr $GITHUB_WORKSPACE/progit2-gr/
+          $GITHUB_WORKSPACE/progit2-gr/findLinks_en $GITHUB_WORKSPACE/progit2-en/
 
-      - name: Check the $HOME after the run of the executable
+      - name: Check the $HOME and the $HOME/progit2Results/ after the run of the executable
         run: |
           ls -la $HOME
-          ls -la $HOME/results
-          ls -la $HOME/results/allFilesFromTheRoot_gr
-          ls -la $HOME/results/check_gr
-          
-      # - name: The home directory in the github runner
-      #   run: |
-      #     echo "The tilda has the value of:"
-      #     pwd
-      #     echo ~
-      #     echo $HOME
+          ls -la $HOME/progit2Results
+
+      
+      - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
+        run: |
+          diff -r $HOME/progit2Results/allFilesFromTheRoot_en/ $HOME/progit2Results/allFilesFromTheRoot_gr/ > diffFiles.txt
+          diffExitCode=$?
+          if [ $diffExitCode -ne 0 ]; then
+            echo "There were difference between files"
+            cat diffFiles.txt
+          else
+            echo "All files are the same"
+          fi
 
         
+  # unfortunately, the call-workflow introduce new working directory
+  # That means, I have to copy the cloned directories to the other workflow
+  # which is not the best solution
 
   # call-workflow:
   #   if: ${{ always() }}
@@ -64,3 +68,6 @@ jobs:
   #   name: Call the other reusable workflow
   #   uses: marrinosnis/progit2/.github/workflows/run-english-checks.yml@add-github-actions
 
+
+# ${GITHUB_WORKSPACE}/progit2-gr
+# ${GITHUB_WORKSPACE}/progit2-en
