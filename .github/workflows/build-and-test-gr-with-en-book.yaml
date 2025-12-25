@@ -56,7 +56,7 @@ jobs:
           diffCode=$?
           set -e
 
-          if [ $diffCode -ne 0 ]
+          if [ $diffCode -ne 0 ]; then
             echo "There were difference between files"
           else
             echo "All files are the same"
