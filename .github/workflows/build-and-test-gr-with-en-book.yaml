@@ -51,12 +51,22 @@ jobs:
       
       - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
         run: |
-          cd $HOME
-          if diff -r progit2Results/allFilesFromTheRoot_en/ progit2Results/allFilesFromTheRoot_gr/ > /dev/null; then 
-            echo "All files are the same"
+          set +e
+          diff -r $HOME/progit2Results/allFilesFromTheRoot_en/ $HOME/progit2Results/allFilesFromTheRoot_gr/ > results.txt
+          diffCode=$?
+          set -e
+
+          if [ $diffCode -ne 0 ]
+            echo "There were difference between files"
           else
-            echo "There were difference between files"            
+            echo "All files are the same"
           fi
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: diff-artifacts
+          path: results.txt
 
         
   # unfortunately, the call-workflow introduce new working directory
