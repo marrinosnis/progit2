@@ -52,7 +52,7 @@ jobs:
       - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
         run: |
           cd $HOME
-          diff -r progit2Results/allFilesFromTheRoot_en/ progit2Results/allFilesFromTheRoot_gr/ > /dev/null
+          if diff -r progit2Results/allFilesFromTheRoot_en/ progit2Results/allFilesFromTheRoot_gr/ > /dev/null; then 
           diffExitCode=$?
           echo "The exit status code is: $diffExitCode"
           if [ $diffExitCode -ne 0 ]; then
