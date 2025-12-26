@@ -46,8 +46,8 @@ jobs:
           ls -la $HOME/progit2Results
 
           echo "\n\nPrint the content of the progit2Results"
-          ls -la $HOME/progit2Results/allFilesFromTheRoot_en
-          ls -la $HOME/progit2Results/allFilesFromTheRoot_gr
+          ls -la $HOME/progit2Results/allHttpsASCResFiles/httpsResFiles_en
+          ls -la $HOME/progit2Results/allHttpsASCResFiles/httpsResFiles_gr
       
       - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
         run: |
