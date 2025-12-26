@@ -52,7 +52,7 @@ jobs:
       - name: Diff the directories to check if there are any diffs between the files that contains https findLinks_en
         run: |
           set +e
-          diff -r $HOME/progit2Results/allFilesFromTheRoot_en/ $HOME/progit2Results/allFilesFromTheRoot_gr/ > results.txt
+          diff -q $HOME/progit2Results/allHttpsASCResFiles/httpsResFiles_en/ $HOME/progit2Results/allHttpsASCResFiles/httpsResFiles_gr/ > results.txt
           diffCode=$?
           set -e
 
